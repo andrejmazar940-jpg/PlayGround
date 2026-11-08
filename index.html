@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#07111b" />
+  <title>LAST LIGHT: Metro Siege</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="game-canvas" aria-label="3D city battlefield"></canvas>
+    <div class="scanlines" aria-hidden="true"></div>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">L</span><div><b>LAST LIGHT</b><small>METRO SIEGE // SECTOR 09</small></div></div>
+      <div class="wave-card"><small>OPERATION</small><strong id="wave-label">WAVE 01</strong><span id="wave-state">DEPLOYMENT</span></div>
+      <button class="icon-btn pause-btn" id="pause-button" aria-label="Pause">Ⅱ</button>
+    </header>
+    <section class="combat-hud" aria-live="polite">
+      <div class="stat-block health-stat"><div class="stat-line"><span>VITALS</span><b id="health-text">100</b></div><div class="meter"><i id="health-fill"></i></div></div>
+      <div class="stat-block armor-stat"><div class="stat-line"><span>ARMOR</span><b id="armor-text">50</b></div><div class="meter"><i id="armor-fill"></i></div></div>
+      <div class="cash-chip"><span class="coin">¢</span><b id="cash-text">150</b></div>
+      <div class="kills-chip"><span>HOSTILES</span><b id="kills-text">0</b></div>
+    </section>
+    <div class="mission-note" id="mission-note"><span class="pulse-dot"></span><span id="mission-text">CLEAR THE BLOCK · 0 HOSTILES REMAIN</span></div>
+    <div class="crosshair" id="crosshair"><i></i><i></i><i></i><i></i><b></b></div>
+    <div class="damage-flash" id="damage-flash"></div>
+    <div class="toast" id="toast"></div>
+    <nav class="quick-actions">
+      <button class="action-btn shop-action" id="shop-button"><span class="action-icon">▦</span><span>FIELD SHOP</span><kbd>B</kbd></button>
+      <button class="action-btn support-action" id="support-button"><span class="action-icon">◈</span><span>DRONE <b id="drone-status">READY</b></span><kbd>Q</kbd></button>
+    </nav>
+    <div class="mobile-controls" id="mobile-controls">
+      <div class="joystick" id="joystick"><div class="joy-ring"><div class="joy-knob" id="joy-knob"></div></div><span>MOVE</span></div>
+      <button class="fire-button" id="fire-button"><span>FIRE</span><i>⊙</i></button>
+    </div>
+    <div class="start-screen" id="start-screen">
+      <div class="start-backdrop"></div>
+      <div class="start-content">
+        <p class="eyebrow"><span></span> ALLIANCE RESPONSE // 03:17 AM</p>
+        <h1>THE CITY<br><em>ISN'T YOURS.</em></h1>
+        <p class="intro-copy">The porcelain legions have breached the metro. Hold the line, salvage their cores, and build a defense before the next wave.</p>
+        <div class="start-meta"><span>✦ SURVIVE THE SIEGE</span><span>✦ BUY · UPGRADE · REPEAT</span></div>
+        <button class="primary-button" id="start-button">DEPLOY TO SECTOR <span>→</span></button>
+        <p class="control-tip">WASD / ARROWS TO MOVE · AUTO-TARGET ON · TOUCH CONTROLS ON MOBILE</p>
+      </div>
+      <div class="start-side-note">CITY GRID 09<br>EVACUATION: FAILED</div>
+    </div>
+    <div class="modal-layer hidden" id="modal-layer">
+      <section class="modal-card" id="modal-card"></section>
+    </div>
+    <div class="bottom-caption"><span>ALLIANCE FIELD SYSTEMS</span><span id="weapon-label">M7 SERVICE RIFLE</span><span>THREAT LEVEL <b id="threat-label">LOW</b></span></div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
